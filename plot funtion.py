@@ -5,7 +5,7 @@ from pdf2image import convert_from_path, convert_from_bytes
 def Image_Converter(filename,filepath):
 
     file = "2.pdf"
-    filepath=r'C:\Users\dydtj\PycharmProjects\Open-Source-Basic-Project\2.pdf'
+    filepath=r'C:\Anaconda3\Lib\site-packages\pdf2image\2.pdf'
     conv = convert_from_bytes(open(filepath, 'rb').read())
 
     for con in conv:
@@ -38,4 +38,4 @@ def Image_Converter(filename,filepath):
     cv2.imwrite("contoured.jpg", image)  # image 파일에서 변환된 부분 plot 된 최종파일 출력
 
 
-##Image_Converter('2.pdf')
+Image_Converter('2.pdf', r'C:\Users\최용석\PycharmProjects\Open-Source-Basic-Project\2.JPG')
