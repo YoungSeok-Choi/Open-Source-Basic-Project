@@ -6,6 +6,8 @@ from pdfminer.pdfpage import PDFPage
 from pytesseract import pytesseract
 import time
 import pygame.mixer
+
+
 #from pdfminer.pdfinterp import PDFResourceManager, process_pdf
 from pdfminer.converter import TextConverter
 from io import StringIO
@@ -57,7 +59,7 @@ def image_to_string(filename):
 
 #text to speech function 0
 def g_tts(text,file_name,file_type):
-    tts=gTTS(text=text,lang='ko')
+    tts=gTTS(text=text,lang='kor')
     save_as=file_name+'.'+file_type
     tts.save(save_as)
 
@@ -145,7 +147,8 @@ def read_docx_file(docxfile):
 #pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
 
 
-image_to_string('2.jpg')
+image = image_to_string('2.JPG')
+pdf2img_converter('2.JPG')
 #a=read_docx_file(r'C:\Users\ygkwo\PycharmProjects\Open210Team_CBNU\Fuction\test1.docx')
 #g_tts(a,'test1','mp3')
 
