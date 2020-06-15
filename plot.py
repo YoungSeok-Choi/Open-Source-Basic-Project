@@ -1,12 +1,11 @@
 import cv2
 from pdf2image import convert_from_path, convert_from_bytes
-import os
 
 
-def Image_Converter(filename):
+def Image_Converter(filename,filepath):
 
     file = "2.pdf"
-    filepath = filename
+    filepath=r'C:\Anaconda3\Lib\site-packages\pdf2image\2.pdf'
     conv = convert_from_bytes(open(filepath, 'rb').read())
 
     for con in conv:
@@ -17,7 +16,7 @@ def Image_Converter(filename):
     _, thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY_INV)  # threshold
     kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3))
     dilated = cv2.dilate(thresh, kernel, iterations=13)  # dilate
-    im2, contours, hierarchy = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)  # get contours
+    contours, hierarchy = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)  # get contours
 
     # for each contour found, draw a rectangle around it on original image
     for contour in contours:
@@ -38,5 +37,5 @@ def Image_Converter(filename):
     # write original image with added contours to disk
     cv2.imwrite("contoured.jpg", image)  # image 파일에서 변환된 부분 plot 된 최종파일 출력
 
-a =os.path.abspath('./2.pdf')
-Image_Converter(a)
+
+Image_Converter('2.pdf', r'C:\Users\최용석\PycharmProjects\Open-Source-Basic-Project\2.JPG')
